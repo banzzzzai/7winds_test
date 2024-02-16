@@ -66,10 +66,10 @@ extension AuthPresenter: AuthPresenterProtocol {
     func updateUI(for state: AuthState) {
         switch state {
         case .login:
-            let viewModel = AuthDataFlow.ViewModel.ChangeStateViewModel(haveAccountText: Constants.Texts.dontHaveAccount, signUpInBtnLabel: Constants.SignUpInBtn.registerLabel, authBtnLabel: Constants.AuthBtn.loginLabel)
+            let viewModel = AuthDataFlow.ViewModel.ChangeStateViewModel(title: Constants.Title.loginTitle, signUpInBtnLabel: Constants.SignUpInBtn.registerLabel, authBtnLabel: Constants.AuthBtn.loginLabel)
             view?.updateUI(with: viewModel)
         case .register:
-            let viewModel = AuthDataFlow.ViewModel.ChangeStateViewModel(haveAccountText: Constants.Texts.haveAccount, signUpInBtnLabel: Constants.SignUpInBtn.loginLabel, authBtnLabel: Constants.AuthBtn.registerLabel)
+            let viewModel = AuthDataFlow.ViewModel.ChangeStateViewModel(title: Constants.Title.registerTitle, signUpInBtnLabel: Constants.SignUpInBtn.loginLabel, authBtnLabel: Constants.AuthBtn.registerLabel)
             view?.updateUI(with: viewModel)
         }
     }
@@ -81,12 +81,13 @@ private extension AuthPresenter {
     func makeAuthViewModel(for viewState: AuthState) -> AuthDataFlow.ViewModel.AuthViewModel {
         let authBtn = makeAuthButtonViewModel(for: viewState)
         let signUpInBtn = makeSignUpInButtonViewModel(for: viewState)
+        let title = viewState == .login ? Constants.Title.loginTitle : Constants.Title.registerTitle
         
         return AuthDataFlow.ViewModel.AuthViewModel(
+            title: title,
             emailLabel: Constants.Labels.loginLabel,
             passwordLabel: Constants.Labels.passwordLabel,
             repeatPasswordLabel: Constants.Labels.repeatPasswordLabel,
-            haveAccountText: Constants.Texts.dontHaveAccount,
             loginPlaceholderText: Constants.TextField.loginPlaceholder,
             passwordPlaceholderText: Constants.TextField.passwordPlaceholder,
             signUpInBtn: signUpInBtn,
@@ -123,6 +124,11 @@ private extension AuthPresenter {
     
     enum Constants {
         
+        enum Title {
+            static let loginTitle: String = "Вход"
+            static let registerTitle: String = "Регистрация"
+        }
+        
         enum AuthBtn {
             static let loginLabel: String = "Войти"
             static let registerLabel: String = "Регистрация"
@@ -137,11 +143,6 @@ private extension AuthPresenter {
             static let loginLabel: String = "e-mail"
             static let passwordLabel: String = "Пароль"
             static let repeatPasswordLabel: String = "Повторите пароль"
-        }
-        
-        enum Texts {
-            static let dontHaveAccount: String = "Нет аккаунта?"
-            static let haveAccount: String = "Есть аккаунт?"
         }
         
         enum TextField {

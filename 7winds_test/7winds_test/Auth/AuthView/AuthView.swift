@@ -102,14 +102,6 @@ final class AuthView: UIView, UITableViewDelegate {
     
     private let signUpInBtn: DefaultButtonConfigurable = DefaultButton()
     
-    private let haveAnAccountQuestionLabel: UILabel = {
-        let lbl = UILabel()
-        lbl.font = AppFonts.label.font
-        lbl.textColor = AppColors.regular.color
-        lbl.textAlignment = .right
-        return lbl
-    }()
-    
     private let bottomStackView = UIStackView()
     
     private let bottomView = UIView()
@@ -137,7 +129,7 @@ private extension AuthView {
     func setup() {
         backgroundColor = .systemBackground
         setupStackView()
-        setupBottomStackView()
+        setupSignUpInBtn()
         setupBackgroundTap()
     }
     
@@ -206,28 +198,15 @@ private extension AuthView {
         
     }
     
-    func setupBottomStackView() {
-        bottomStackView.addArrangedSubview(haveAnAccountQuestionLabel)
-        bottomStackView.addArrangedSubview(signUpInBtn)
-        bottomStackView.axis = Constants.BottomStackView.axis
-        bottomStackView.spacing = Constants.BottomStackView.spacing
-        bottomStackView.distribution = .fillEqually
-        
-        haveAnAccountQuestionLabel.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-        }
+    func setupSignUpInBtn() {
+        addSubview(signUpInBtn)
         
         signUpInBtn.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-        }
-        
-        addSubview(bottomStackView)
-
-        bottomStackView.snp.makeConstraints { make in
+            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).offset(Constants.SignUpInButton.bottomOffsetToSafeArea)
+            make.width.equalTo(Constants.SignUpInButton.width)
+            make.height.equalTo(Constants.SignUpInButton.height)
             make.centerX.equalToSuperview()
-            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
         }
-        
     }
     
     func authBtnTapped() {
@@ -306,7 +285,6 @@ extension AuthView: DisplaysAuthView {
         emailLabel.text = viewModel.emailLabel
         passwordLabel.text = viewModel.passwordLabel
         repeatPasswordLabel.text = viewModel.repeatPasswordLabel
-        haveAnAccountQuestionLabel.text = viewModel.haveAccountText
         emailTextField.placeholder = viewModel.loginPlaceholderText
         passwordTextField.placeholder = viewModel.passwordPlaceholderText
         repeatPasswordTextField.placeholder = viewModel.passwordPlaceholderText
@@ -325,7 +303,6 @@ extension AuthView: DisplaysAuthView {
         
         authBtn.changeTitle(to: viewModel.authBtnLabel)
         signUpInBtn.changeTitle(to: viewModel.signUpInBtnLabel)
-        haveAnAccountQuestionLabel.text = viewModel.haveAccountText
         
         UIView.animate(withDuration: 0.5) { [ weak self ] in
             guard let self else { return }
@@ -368,6 +345,8 @@ private extension AuthView {
         
         enum SignUpInButton {
             static let height: CGFloat = 20
+            static let width: CGFloat = 92
+            static let bottomOffsetToSafeArea: CGFloat = -10
         }
         
         enum Label {

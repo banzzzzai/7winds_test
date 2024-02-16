@@ -11,8 +11,8 @@ import SnapKit
 
 protocol AuthDisplayLogic: AnyObject {
     func displayAuthView(with viewModel: AuthDataFlow.ViewModel.AuthViewModel)
-    func showAlert(with model: AuthDataFlow.ViewModel.AlertViewModel)
-    func updateUI(with model: AuthDataFlow.ViewModel.ChangeStateViewModel)
+    func showAlert(with viewModel: AuthDataFlow.ViewModel.AlertViewModel)
+    func updateUI(with viewModel: AuthDataFlow.ViewModel.ChangeStateViewModel)
 }
 
 final class AuthViewController: UIViewController {
@@ -51,7 +51,6 @@ private extension AuthViewController {
     }
     
     func setupNavBar() {
-        title = Constants.registerTitle
         
         let textAttributes: [NSAttributedString.Key: Any] = [
             .foregroundColor: AppColors.regular.color,
@@ -74,18 +73,20 @@ private extension AuthViewController {
 extension AuthViewController: AuthDisplayLogic {
     
     func displayAuthView(with viewModel: AuthDataFlow.ViewModel.AuthViewModel) {
+        title = viewModel.title
         contentView.configure(with: viewModel)
     }
     
-    func showAlert(with model: AuthDataFlow.ViewModel.AlertViewModel) {
-        let alertController = UIAlertController(title: model.title, message: model.message, preferredStyle: .alert)
+    func showAlert(with viewModel: AuthDataFlow.ViewModel.AlertViewModel) {
+        let alertController = UIAlertController(title: viewModel.title, message: viewModel.message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
     }
     
-    func updateUI(with model: AuthDataFlow.ViewModel.ChangeStateViewModel) {
-        contentView.updateUI(with: model)
+    func updateUI(with viewModel: AuthDataFlow.ViewModel.ChangeStateViewModel) {
+        title = viewModel.title
+        contentView.updateUI(with: viewModel)
     }
     
 }
@@ -120,10 +121,5 @@ extension AuthViewController: AuthViewDelegate {
 
 // MARK: - Constants
 private extension AuthViewController {
-    
-    enum Constants {
-        static let registerTitle: String = "Регистрация"
-        static let loginTitle: String = "Вход"
-    }
     
 }

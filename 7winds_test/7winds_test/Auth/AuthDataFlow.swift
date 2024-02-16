@@ -12,10 +12,10 @@ enum AuthDataFlow {
     struct ViewModel {
         
         struct AuthViewModel {
+            let title: String
             let emailLabel: String
             let passwordLabel: String
             let repeatPasswordLabel: String
-            let haveAccountText: String
             let loginPlaceholderText: String
             let passwordPlaceholderText: String
             var signUpInBtn: DefaultButtonModel
@@ -23,7 +23,7 @@ enum AuthDataFlow {
         }
         
         struct ChangeStateViewModel {
-            let haveAccountText: String
+            let title: String
             let signUpInBtnLabel: String
             let authBtnLabel: String
         }
