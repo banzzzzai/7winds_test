@@ -16,12 +16,14 @@ protocol AuthInteractorProtocol: AnyObject {
 final class AuthInteractor {
     
     // MARK: - Properties
-    weak var presenter: AuthPresenterProtocol?
+    weak var presenter: InteractorOutputProtocol?
     private var provider: ProvidesAuth
+    private var keychainManager: KeychainManagerProtocol
     
     // MARK: - Init
-    init(provider: ProvidesAuth) {
+    init(provider: ProvidesAuth, keychainManager: KeychainManagerProtocol) {
         self.provider = provider
+        self.keychainManager = keychainManager
     }
     
 }
@@ -30,13 +32,14 @@ final class AuthInteractor {
 extension AuthInteractor: AuthInteractorProtocol {
     func login(login: String, password: String) {
         let user = AuthModel(login: login, password: password)
-        provider.fetchAuthorizationToken(usersCredentional: user) { result in
+        provider.fetchAuthorizationToken(usersCredentional: user) { [self] result in
             switch result {
             case .success(let token):
-                // TODO: - сохранить токен и время его истечения
-                print(token?.token)
+                keychainManager.save(item: token?.token, service: .token)
+                keychainManager.save(item: Int(NSDate().timeIntervalSince1970) + (token?.tokenLifetime ?? 0), service: .tokenExpirationDate)
+                presenter?.authSuccess()
             case .failure(let error):
-                print(error)
+                presenter?.networkError(error: error)
             }
             
         }

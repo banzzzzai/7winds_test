@@ -8,16 +8,19 @@
 import Foundation
 
 protocol AuthRouterProtocol: AnyObject {
-    
+    func showNextSreen()
 }
 
 class AuthRouter {
     
     // MARK: - Properties
-    weak var presenter: AuthPresenterProtocol?
+    weak var viewController: AuthViewController?
     
 }
 
 extension AuthRouter: AuthRouterProtocol {
-    
+    func showNextSreen() {
+        let nextVC = NearestCoffeeViewController()
+        viewController?.navigationController?.pushViewController(nextVC, animated: true)
+    }
 }

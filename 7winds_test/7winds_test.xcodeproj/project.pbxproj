@@ -13,6 +13,9 @@
 		115278EE2B7A3731009894DF /* AuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115278ED2B7A3731009894DF /* AuthProvider.swift */; };
 		115278F02B7A3870009894DF /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115278EF2B7A3870009894DF /* Token.swift */; };
 		115278F22B7D1421009894DF /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115278F12B7D1421009894DF /* KeychainManager.swift */; };
+		115278F52B80C0B3009894DF /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 115278F42B80C0B3009894DF /* SnapKit-Dynamic */; };
+		115278F62B80C0B3009894DF /* SnapKit-Dynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 115278F42B80C0B3009894DF /* SnapKit-Dynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		115278F92B80C4EE009894DF /* NearestCoffeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115278F82B80C4EE009894DF /* NearestCoffeeViewController.swift */; };
 		1187C12C2B70F9C5008A4EA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1187C12B2B70F9C5008A4EA4 /* AppDelegate.swift */; };
 		1187C12E2B70F9C5008A4EA4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1187C12D2B70F9C5008A4EA4 /* SceneDelegate.swift */; };
 		1187C1362B70F9C5008A4EA4 /* _winds_test.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1187C1342B70F9C5008A4EA4 /* _winds_test.xcdatamodeld */; };
@@ -23,10 +26,7 @@
 		1187C14B2B70FEC0008A4EA4 /* AuthAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1187C1472B70FEC0008A4EA4 /* AuthAssembly.swift */; };
 		1187C14C2B70FEC0008A4EA4 /* AuthInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1187C1482B70FEC0008A4EA4 /* AuthInteractor.swift */; };
 		1187C1502B70FEDE008A4EA4 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1187C14F2B70FEDE008A4EA4 /* AuthRouter.swift */; };
-		1187C1532B710216008A4EA4 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1187C1522B710216008A4EA4 /* Endpoint.swift */; };
-		1187C1552B7105F4008A4EA4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1187C1542B7105F4008A4EA4 /* NetworkManager.swift */; };
 		1187C1582B710659008A4EA4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1187C1572B710659008A4EA4 /* SnapKit */; };
-		1187C15A2B710659008A4EA4 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 1187C1592B710659008A4EA4 /* SnapKit-Dynamic */; };
 		1187C15D2B71067F008A4EA4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1187C15C2B71067F008A4EA4 /* Alamofire */; };
 		1187C1612B7125BC008A4EA4 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1187C1602B7125BC008A4EA4 /* AppColors.swift */; };
 		1187C1642B71261F008A4EA4 /* AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1187C1632B71261F008A4EA4 /* AppFonts.swift */; };
@@ -50,6 +50,20 @@
 		1187C1942B73A363008A4EA4 /* AuthValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1187C1932B73A363008A4EA4 /* AuthValidation.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		115278F72B80C0B3009894DF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				115278F62B80C0B3009894DF /* SnapKit-Dynamic in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		115278E72B7A36BE009894DF /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
 		115278E92B7A36F9009894DF /* AuthNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNetworkManager.swift; sourceTree = "<group>"; };
@@ -57,6 +71,7 @@
 		115278ED2B7A3731009894DF /* AuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProvider.swift; sourceTree = "<group>"; };
 		115278EF2B7A3870009894DF /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		115278F12B7D1421009894DF /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		115278F82B80C4EE009894DF /* NearestCoffeeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestCoffeeViewController.swift; sourceTree = "<group>"; };
 		1187C1282B70F9C5008A4EA4 /* 7winds_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 7winds_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1187C12B2B70F9C5008A4EA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1187C12D2B70F9C5008A4EA4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,8 +84,6 @@
 		1187C1472B70FEC0008A4EA4 /* AuthAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAssembly.swift; sourceTree = "<group>"; };
 		1187C1482B70FEC0008A4EA4 /* AuthInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInteractor.swift; sourceTree = "<group>"; };
 		1187C14F2B70FEDE008A4EA4 /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
-		1187C1522B710216008A4EA4 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
-		1187C1542B7105F4008A4EA4 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		1187C1602B7125BC008A4EA4 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		1187C1632B71261F008A4EA4 /* AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFonts.swift; sourceTree = "<group>"; };
 		1187C1662B7143A5008A4EA4 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
@@ -100,7 +113,7 @@
 			files = (
 				1187C15D2B71067F008A4EA4 /* Alamofire in Frameworks */,
 				1187C1582B710659008A4EA4 /* SnapKit in Frameworks */,
-				1187C15A2B710659008A4EA4 /* SnapKit-Dynamic in Frameworks */,
+				115278F52B80C0B3009894DF /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +123,7 @@
 		115278E32B78B3FB009894DF /* NearestCoffee */ = {
 			isa = PBXGroup;
 			children = (
+				115278F82B80C4EE009894DF /* NearestCoffeeViewController.swift */,
 			);
 			path = NearestCoffee;
 			sourceTree = "<group>";
@@ -141,11 +155,19 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		115278F32B80C0B3009894DF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1187C11F2B70F9C5008A4EA4 = {
 			isa = PBXGroup;
 			children = (
 				1187C12A2B70F9C5008A4EA4 /* 7winds_test */,
 				1187C1292B70F9C5008A4EA4 /* Products */,
+				115278F32B80C0B3009894DF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -160,13 +182,12 @@
 		1187C12A2B70F9C5008A4EA4 /* 7winds_test */ = {
 			isa = PBXGroup;
 			children = (
-				115278E32B78B3FB009894DF /* NearestCoffee */,
 				1187C1432B70F9F9008A4EA4 /* Application */,
-				1187C1512B71020C008A4EA4 /* Network */,
 				1187C16A2B736276008A4EA4 /* Services */,
 				1187C1442B70FE98008A4EA4 /* Auth */,
-				1187C1852B739BFF008A4EA4 /* Components */,
+				115278E32B78B3FB009894DF /* NearestCoffee */,
 				1187C1822B739902008A4EA4 /* Models */,
+				1187C1852B739BFF008A4EA4 /* Components */,
 				1187C18E2B739D24008A4EA4 /* Helpers */,
 				1187C1652B714352008A4EA4 /* Extensions */,
 				1187C15E2B7125A7008A4EA4 /* Themes */,
@@ -207,15 +228,6 @@
 				1187C1802B73672B008A4EA4 /* AuthDataFlow.swift */,
 			);
 			path = Auth;
-			sourceTree = "<group>";
-		};
-		1187C1512B71020C008A4EA4 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				1187C1522B710216008A4EA4 /* Endpoint.swift */,
-				1187C1542B7105F4008A4EA4 /* NetworkManager.swift */,
-			);
-			path = Network;
 			sourceTree = "<group>";
 		};
 		1187C15E2B7125A7008A4EA4 /* Themes */ = {
@@ -355,6 +367,7 @@
 				1187C1242B70F9C5008A4EA4 /* Sources */,
 				1187C1252B70F9C5008A4EA4 /* Frameworks */,
 				1187C1262B70F9C5008A4EA4 /* Resources */,
+				115278F72B80C0B3009894DF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -363,8 +376,8 @@
 			name = 7winds_test;
 			packageProductDependencies = (
 				1187C1572B710659008A4EA4 /* SnapKit */,
-				1187C1592B710659008A4EA4 /* SnapKit-Dynamic */,
 				1187C15C2B71067F008A4EA4 /* Alamofire */,
+				115278F42B80C0B3009894DF /* SnapKit-Dynamic */,
 			);
 			productName = 7winds_test;
 			productReference = 1187C1282B70F9C5008A4EA4 /* 7winds_test.app */;
@@ -427,7 +440,6 @@
 				1187C1942B73A363008A4EA4 /* AuthValidation.swift in Sources */,
 				115278F02B7A3870009894DF /* Token.swift in Sources */,
 				1187C1792B7363EF008A4EA4 /* HTTPTask.swift in Sources */,
-				1187C1552B7105F4008A4EA4 /* NetworkManager.swift in Sources */,
 				1187C1922B739DA3008A4EA4 /* ViewState.swift in Sources */,
 				1187C1492B70FEC0008A4EA4 /* AuthPresenter.swift in Sources */,
 				1187C1502B70FEDE008A4EA4 /* AuthRouter.swift in Sources */,
@@ -436,6 +448,7 @@
 				1187C14C2B70FEC0008A4EA4 /* AuthInteractor.swift in Sources */,
 				1187C14A2B70FEC0008A4EA4 /* AuthViewController.swift in Sources */,
 				115278EA2B7A36F9009894DF /* AuthNetworkManager.swift in Sources */,
+				115278F92B80C4EE009894DF /* NearestCoffeeViewController.swift in Sources */,
 				1187C17B2B73642E008A4EA4 /* NetworkResponseError.swift in Sources */,
 				1187C1712B736362008A4EA4 /* URLParameterEncoding.swift in Sources */,
 				1187C17F2B73645F008A4EA4 /* NetworkService.swift in Sources */,
@@ -458,7 +471,6 @@
 				115278F22B7D1421009894DF /* KeychainManager.swift in Sources */,
 				115278EE2B7A3731009894DF /* AuthProvider.swift in Sources */,
 				1187C1842B739928008A4EA4 /* AuthState.swift in Sources */,
-				1187C1532B710216008A4EA4 /* Endpoint.swift in Sources */,
 				1187C1362B70F9C5008A4EA4 /* _winds_test.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -529,7 +541,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -586,7 +598,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -693,15 +705,15 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		115278F42B80C0B3009894DF /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1187C1562B710659008A4EA4 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = "SnapKit-Dynamic";
+		};
 		1187C1572B710659008A4EA4 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1187C1562B710659008A4EA4 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		1187C1592B710659008A4EA4 /* SnapKit-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1187C1562B710659008A4EA4 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = "SnapKit-Dynamic";
 		};
 		1187C15C2B71067F008A4EA4 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -83,6 +83,7 @@ class KeychainManager: KeychainManagerProtocol {
 extension KeychainManager {
     enum ServiceKeys: String {
         case token
+        case tokenExpirationDate
     }
 }
 

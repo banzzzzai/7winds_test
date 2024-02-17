@@ -16,6 +16,11 @@ protocol AuthPresenterProtocol: AnyObject {
     func updateUI(for state: AuthState)
 }
 
+protocol InteractorOutputProtocol: AnyObject {
+    func networkError(error: NetworkError)
+    func authSuccess()
+}
+
 final class AuthPresenter {
 
     // MARK: - Properties
@@ -115,6 +120,34 @@ private extension AuthPresenter {
     
     func makeAlertViewModel(title: String, message: String) -> AuthDataFlow.ViewModel.AlertViewModel {
         AuthDataFlow.ViewModel.AlertViewModel(title: title, message: message)
+    }
+    
+}
+
+// MARK: - InteractorOutput
+extension AuthPresenter: InteractorOutputProtocol {
+    
+    func networkError(error: NetworkError) {
+        switch error {
+        case .successfulConnection:
+            view?.showAlert(with: makeAlertViewModel(title: "Ошибка", message: "test"))
+        case .connectionFailed:
+            view?.showAlert(with: makeAlertViewModel(title: "Ошибка", message: "connectionFailed"))
+        case .redirection:
+            view?.showAlert(with: makeAlertViewModel(title: "Ошибка", message: "redirection"))
+        case .encodingFailed:
+            view?.showAlert(with: makeAlertViewModel(title: "Ошибка", message: "encodingFailed"))
+        case .missingUrl:
+            view?.showAlert(with: makeAlertViewModel(title: "Ошибка", message: "missingUrl"))
+        case .serverError:
+            view?.showAlert(with: makeAlertViewModel(title: "Ошибка", message: "serverError"))
+        case .clientError:
+            view?.showAlert(with: makeAlertViewModel(title: "Ошибка", message: "clientError"))
+        }
+    }
+    
+    func authSuccess() {
+        router.showNextSreen()
     }
     
 }

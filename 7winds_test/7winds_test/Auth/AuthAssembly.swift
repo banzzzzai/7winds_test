@@ -9,9 +9,10 @@
 final class AuthAssembly {
     static func build() -> AuthViewController {
         let viewController = AuthViewController()
-        let networkManager = NetworkManager()
-        let provider = AuthProvider(networkManager: AuthNetworkManager())
-        let interactor = AuthInteractor(provider: provider)
+        let networkManager = AuthNetworkManager()
+        let provider = AuthProvider(networkManager: networkManager)
+        let keychainManager = KeychainManager.shared
+        let interactor = AuthInteractor(provider: provider, keychainManager: keychainManager)
         let router = AuthRouter()
 
         let presenter =  AuthPresenter(
@@ -22,7 +23,7 @@ final class AuthAssembly {
         presenter.view = viewController
         viewController.presenter = presenter
         interactor.presenter = presenter
-        router.presenter = presenter
+        router.viewController = viewController
         
         return viewController
     }
