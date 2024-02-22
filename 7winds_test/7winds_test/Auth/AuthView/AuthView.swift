@@ -16,12 +16,12 @@ protocol AuthViewDelegate: AnyObject {
 }
 
 protocol DisplaysAuthView: AnyObject {
-    var delegate: AuthViewDelegate? { get set }
+    var viewDelegate: AuthViewDelegate? { get set }
     func configure(with viewModel: AuthDataFlow.ViewModel.AuthViewModel)
     func updateUI(with viewModel: AuthDataFlow.ViewModel.ChangeStateViewModel)
 }
 
-final class AuthView: UIView, UITableViewDelegate {
+final class AuthView: UIScrollView {
     
     // MARK: - UIElements
     private let emailLabel: UILabel = {
@@ -109,7 +109,7 @@ final class AuthView: UIView, UITableViewDelegate {
     private var isLogin = false
     
     //MARK: - AuthViewDelegate
-    weak var delegate: AuthViewDelegate?
+    weak var viewDelegate: AuthViewDelegate?
     
     //MARK: - Initializers
     init() {
@@ -119,6 +119,10 @@ final class AuthView: UIView, UITableViewDelegate {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
 }
@@ -131,6 +135,7 @@ private extension AuthView {
         setupStackView()
         setupSignUpInBtn()
         setupBackgroundTap()
+        commonInit()
     }
     
     func setupStackView() {
@@ -216,49 +221,49 @@ private extension AuthView {
     func validateAuthData() {
         guard let login = emailTextField.text
         else {
-            delegate?.showAlert(for: .noLogin)
+            viewDelegate?.showAlert(for: .noLogin)
             return
         }
         if login.count < 6 {
-            delegate?.showAlert(for: .invalidLogin)
+            viewDelegate?.showAlert(for: .invalidLogin)
             return
         }
         
         guard let password = passwordTextField.text,
               let repeatPassword = repeatPasswordTextField.text
         else {
-            delegate?.showAlert(for: .noPassword)
+            viewDelegate?.showAlert(for: .noPassword)
             return
         }
         
         if password == "" {
-            delegate?.showAlert(for: .noPassword)
+            viewDelegate?.showAlert(for: .noPassword)
             return
         }
         
         
         if !isLogin {
             if repeatPassword == "" {
-                delegate?.showAlert(for: .noRepeatPassword)
+                viewDelegate?.showAlert(for: .noRepeatPassword)
                 return
             }
             
             if password != repeatPassword {
-                delegate?.showAlert(for: .passwordsDontMatch)
+                viewDelegate?.showAlert(for: .passwordsDontMatch)
                 return
             }
         }
         
-        delegate?.login(login: login, password: password)
+        viewDelegate?.login(login: login, password: password)
         
     }
     
     func signUpInBtnTapped() {
         isLogin.toggle()
         if isLogin {
-            delegate?.updateUI(for: .login)
+            viewDelegate?.updateUI(for: .login)
         } else {
-            delegate?.updateUI(for: .register)
+            viewDelegate?.updateUI(for: .register)
         }
     }
     
@@ -271,6 +276,24 @@ private extension AuthView {
     
     @objc func backgroundTap() {
         endEditing(false)
+    }
+    
+    private func commonInit() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc private func keyboardWillShow(_ notification: Notification) {
+        if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
+            print(contentSize.height)
+            contentSize.height = frame.height + keyboardFrame.height
+            print(contentSize.height)
+        }
+    }
+    
+    @objc private func keyboardWillHide(_ notification: Notification) {
+        // Возвращаем исходный размер содержимого scrollView при скрытии клавиатуры
+        contentSize.height = frame.height
     }
 
 }
@@ -290,6 +313,7 @@ extension AuthView: DisplaysAuthView {
         repeatPasswordTextField.placeholder = viewModel.passwordPlaceholderText
         
         authBtn.setTouchUpInsideHandler { [ weak self ] in
+            self?.endEditing(false)
             self?.authBtnTapped()
         }
         
@@ -364,7 +388,7 @@ private extension AuthView {
         enum StackView {
             static let axis: NSLayoutConstraint.Axis = .vertical
             static let spacing: CGFloat = 24
-            static let topConstraintToSuperview: CGFloat = 278
+            static let topConstraintToSuperview: CGFloat = 190
         }
         
         enum BottomStackView {

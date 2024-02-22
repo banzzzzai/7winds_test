@@ -13,9 +13,18 @@
 		115278EE2B7A3731009894DF /* AuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115278ED2B7A3731009894DF /* AuthProvider.swift */; };
 		115278F02B7A3870009894DF /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115278EF2B7A3870009894DF /* Token.swift */; };
 		115278F22B7D1421009894DF /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115278F12B7D1421009894DF /* KeychainManager.swift */; };
-		115278F52B80C0B3009894DF /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 115278F42B80C0B3009894DF /* SnapKit-Dynamic */; };
-		115278F62B80C0B3009894DF /* SnapKit-Dynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 115278F42B80C0B3009894DF /* SnapKit-Dynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		115278F92B80C4EE009894DF /* NearestCoffeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115278F82B80C4EE009894DF /* NearestCoffeeViewController.swift */; };
+		1152790D2B85E5B0009894DF /* NearestCoffeeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1152790C2B85E5B0009894DF /* NearestCoffeeInteractor.swift */; };
+		1152790F2B85E5B9009894DF /* NearestCoffeePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1152790E2B85E5B9009894DF /* NearestCoffeePresenter.swift */; };
+		115279112B85E5BE009894DF /* NearestCoffeeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115279102B85E5BE009894DF /* NearestCoffeeRouter.swift */; };
+		115279132B85E5C6009894DF /* NearestCoffeeAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115279122B85E5C6009894DF /* NearestCoffeeAssembly.swift */; };
+		115279152B85E5D9009894DF /* NearestCoffeeDataFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115279142B85E5D9009894DF /* NearestCoffeeDataFlow.swift */; };
+		115279172B85E5F7009894DF /* NearestCoffeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115279162B85E5F7009894DF /* NearestCoffeeView.swift */; };
+		1152791C2B85EA1D009894DF /* NearestCoffeeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1152791B2B85EA1D009894DF /* NearestCoffeeProvider.swift */; };
+		1152791E2B85EA28009894DF /* NearestCoffeeEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1152791D2B85EA28009894DF /* NearestCoffeeEndpoint.swift */; };
+		115279202B85EA34009894DF /* NearestCoffeeNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1152791F2B85EA34009894DF /* NearestCoffeeNetworkManager.swift */; };
+		115279232B85ECB6009894DF /* NearestCoffeeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115279222B85ECB6009894DF /* NearestCoffeeModel.swift */; };
+		115279252B85F3E9009894DF /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 115279242B85F3E9009894DF /* SnapKit */; };
 		1187C12C2B70F9C5008A4EA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1187C12B2B70F9C5008A4EA4 /* AppDelegate.swift */; };
 		1187C12E2B70F9C5008A4EA4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1187C12D2B70F9C5008A4EA4 /* SceneDelegate.swift */; };
 		1187C1362B70F9C5008A4EA4 /* _winds_test.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1187C1342B70F9C5008A4EA4 /* _winds_test.xcdatamodeld */; };
@@ -26,8 +35,6 @@
 		1187C14B2B70FEC0008A4EA4 /* AuthAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1187C1472B70FEC0008A4EA4 /* AuthAssembly.swift */; };
 		1187C14C2B70FEC0008A4EA4 /* AuthInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1187C1482B70FEC0008A4EA4 /* AuthInteractor.swift */; };
 		1187C1502B70FEDE008A4EA4 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1187C14F2B70FEDE008A4EA4 /* AuthRouter.swift */; };
-		1187C1582B710659008A4EA4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1187C1572B710659008A4EA4 /* SnapKit */; };
-		1187C15D2B71067F008A4EA4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1187C15C2B71067F008A4EA4 /* Alamofire */; };
 		1187C1612B7125BC008A4EA4 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1187C1602B7125BC008A4EA4 /* AppColors.swift */; };
 		1187C1642B71261F008A4EA4 /* AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1187C1632B71261F008A4EA4 /* AppFonts.swift */; };
 		1187C1672B7143A5008A4EA4 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1187C1662B7143A5008A4EA4 /* UITextField+Extension.swift */; };
@@ -57,7 +64,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				115278F62B80C0B3009894DF /* SnapKit-Dynamic in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,6 +78,16 @@
 		115278EF2B7A3870009894DF /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		115278F12B7D1421009894DF /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		115278F82B80C4EE009894DF /* NearestCoffeeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestCoffeeViewController.swift; sourceTree = "<group>"; };
+		1152790C2B85E5B0009894DF /* NearestCoffeeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestCoffeeInteractor.swift; sourceTree = "<group>"; };
+		1152790E2B85E5B9009894DF /* NearestCoffeePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestCoffeePresenter.swift; sourceTree = "<group>"; };
+		115279102B85E5BE009894DF /* NearestCoffeeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestCoffeeRouter.swift; sourceTree = "<group>"; };
+		115279122B85E5C6009894DF /* NearestCoffeeAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestCoffeeAssembly.swift; sourceTree = "<group>"; };
+		115279142B85E5D9009894DF /* NearestCoffeeDataFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestCoffeeDataFlow.swift; sourceTree = "<group>"; };
+		115279162B85E5F7009894DF /* NearestCoffeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestCoffeeView.swift; sourceTree = "<group>"; };
+		1152791B2B85EA1D009894DF /* NearestCoffeeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestCoffeeProvider.swift; sourceTree = "<group>"; };
+		1152791D2B85EA28009894DF /* NearestCoffeeEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestCoffeeEndpoint.swift; sourceTree = "<group>"; };
+		1152791F2B85EA34009894DF /* NearestCoffeeNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestCoffeeNetworkManager.swift; sourceTree = "<group>"; };
+		115279222B85ECB6009894DF /* NearestCoffeeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestCoffeeModel.swift; sourceTree = "<group>"; };
 		1187C1282B70F9C5008A4EA4 /* 7winds_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 7winds_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1187C12B2B70F9C5008A4EA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1187C12D2B70F9C5008A4EA4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,9 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1187C15D2B71067F008A4EA4 /* Alamofire in Frameworks */,
-				1187C1582B710659008A4EA4 /* SnapKit in Frameworks */,
-				115278F52B80C0B3009894DF /* SnapKit-Dynamic in Frameworks */,
+				115279252B85F3E9009894DF /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,7 +137,13 @@
 		115278E32B78B3FB009894DF /* NearestCoffee */ = {
 			isa = PBXGroup;
 			children = (
-				115278F82B80C4EE009894DF /* NearestCoffeeViewController.swift */,
+				115279192B85EA0B009894DF /* Provider */,
+				115279182B85E604009894DF /* NearestCoffeeView */,
+				1152790C2B85E5B0009894DF /* NearestCoffeeInteractor.swift */,
+				1152790E2B85E5B9009894DF /* NearestCoffeePresenter.swift */,
+				115279102B85E5BE009894DF /* NearestCoffeeRouter.swift */,
+				115279122B85E5C6009894DF /* NearestCoffeeAssembly.swift */,
+				115279142B85E5D9009894DF /* NearestCoffeeDataFlow.swift */,
 			);
 			path = NearestCoffee;
 			sourceTree = "<group>";
@@ -160,6 +180,42 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		115279182B85E604009894DF /* NearestCoffeeView */ = {
+			isa = PBXGroup;
+			children = (
+				115279162B85E5F7009894DF /* NearestCoffeeView.swift */,
+				115278F82B80C4EE009894DF /* NearestCoffeeViewController.swift */,
+			);
+			path = NearestCoffeeView;
+			sourceTree = "<group>";
+		};
+		115279192B85EA0B009894DF /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				115279212B85ECB0009894DF /* Model */,
+				1152791A2B85EA13009894DF /* Networking */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		1152791A2B85EA13009894DF /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				1152791B2B85EA1D009894DF /* NearestCoffeeProvider.swift */,
+				1152791D2B85EA28009894DF /* NearestCoffeeEndpoint.swift */,
+				1152791F2B85EA34009894DF /* NearestCoffeeNetworkManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		115279212B85ECB0009894DF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				115279222B85ECB6009894DF /* NearestCoffeeModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		1187C11F2B70F9C5008A4EA4 = {
@@ -375,9 +431,7 @@
 			);
 			name = 7winds_test;
 			packageProductDependencies = (
-				1187C1572B710659008A4EA4 /* SnapKit */,
-				1187C15C2B71067F008A4EA4 /* Alamofire */,
-				115278F42B80C0B3009894DF /* SnapKit-Dynamic */,
+				115279242B85F3E9009894DF /* SnapKit */,
 			);
 			productName = 7winds_test;
 			productReference = 1187C1282B70F9C5008A4EA4 /* 7winds_test.app */;
@@ -446,6 +500,7 @@
 				1187C12C2B70F9C5008A4EA4 /* AppDelegate.swift in Sources */,
 				1187C12E2B70F9C5008A4EA4 /* SceneDelegate.swift in Sources */,
 				1187C14C2B70FEC0008A4EA4 /* AuthInteractor.swift in Sources */,
+				1152790D2B85E5B0009894DF /* NearestCoffeeInteractor.swift in Sources */,
 				1187C14A2B70FEC0008A4EA4 /* AuthViewController.swift in Sources */,
 				115278EA2B7A36F9009894DF /* AuthNetworkManager.swift in Sources */,
 				115278F92B80C4EE009894DF /* NearestCoffeeViewController.swift in Sources */,
@@ -454,23 +509,32 @@
 				1187C17F2B73645F008A4EA4 /* NetworkService.swift in Sources */,
 				115278E82B7A36BE009894DF /* AuthModel.swift in Sources */,
 				1187C1772B7363D5008A4EA4 /* HTTPMethod.swift in Sources */,
+				115279152B85E5D9009894DF /* NearestCoffeeDataFlow.swift in Sources */,
+				1152791C2B85EA1D009894DF /* NearestCoffeeProvider.swift in Sources */,
 				1187C1752B7363BC008A4EA4 /* EndpointType.swift in Sources */,
 				115278EC2B7A3723009894DF /* AuthEndpoint.swift in Sources */,
 				1187C1732B73637F008A4EA4 /* JSONParameterEncoding.swift in Sources */,
 				1187C14B2B70FEC0008A4EA4 /* AuthAssembly.swift in Sources */,
 				1187C1672B7143A5008A4EA4 /* UITextField+Extension.swift in Sources */,
+				115279232B85ECB6009894DF /* NearestCoffeeModel.swift in Sources */,
+				115279112B85E5BE009894DF /* NearestCoffeeRouter.swift in Sources */,
 				1187C17D2B736448008A4EA4 /* NetworkServiceRoutes.swift in Sources */,
 				1187C16F2B7362FA008A4EA4 /* ParameterEncoding.swift in Sources */,
 				1187C1812B73672B008A4EA4 /* AuthDataFlow.swift in Sources */,
 				1187C1902B739D50008A4EA4 /* TapAnimation.swift in Sources */,
+				115279132B85E5C6009894DF /* NearestCoffeeAssembly.swift in Sources */,
 				1187C1642B71261F008A4EA4 /* AppFonts.swift in Sources */,
 				1187C1882B739C29008A4EA4 /* DefaultButtonModel.swift in Sources */,
 				1187C1692B722C7A008A4EA4 /* AuthView.swift in Sources */,
 				1187C1612B7125BC008A4EA4 /* AppColors.swift in Sources */,
 				1187C18B2B739CE1008A4EA4 /* DefaultButtonConfigurable.swift in Sources */,
 				115278F22B7D1421009894DF /* KeychainManager.swift in Sources */,
+				115279202B85EA34009894DF /* NearestCoffeeNetworkManager.swift in Sources */,
 				115278EE2B7A3731009894DF /* AuthProvider.swift in Sources */,
+				1152790F2B85E5B9009894DF /* NearestCoffeePresenter.swift in Sources */,
 				1187C1842B739928008A4EA4 /* AuthState.swift in Sources */,
+				115279172B85E5F7009894DF /* NearestCoffeeView.swift in Sources */,
+				1152791E2B85EA28009894DF /* NearestCoffeeEndpoint.swift in Sources */,
 				1187C1362B70F9C5008A4EA4 /* _winds_test.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -705,20 +769,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		115278F42B80C0B3009894DF /* SnapKit-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1187C1562B710659008A4EA4 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = "SnapKit-Dynamic";
-		};
-		1187C1572B710659008A4EA4 /* SnapKit */ = {
+		115279242B85F3E9009894DF /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1187C1562B710659008A4EA4 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		1187C15C2B71067F008A4EA4 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1187C15B2B71067F008A4EA4 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 

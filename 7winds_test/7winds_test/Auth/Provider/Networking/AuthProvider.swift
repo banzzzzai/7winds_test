@@ -21,6 +21,7 @@ final class AuthProvider {
     }
 }
 
+// MARK:  - ProvidesAuth
 extension AuthProvider: ProvidesAuth {
     func fetchAuthorizationToken(usersCredentional: AuthModel, completion: @escaping RequestResult<Token>) {
         networkManager.getAccessToken(userInfo: usersCredentional) { completion($0) }

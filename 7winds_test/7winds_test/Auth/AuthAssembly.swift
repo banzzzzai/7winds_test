@@ -14,11 +14,7 @@ final class AuthAssembly {
         let keychainManager = KeychainManager.shared
         let interactor = AuthInteractor(provider: provider, keychainManager: keychainManager)
         let router = AuthRouter()
-
-        let presenter =  AuthPresenter(
-            interactor: interactor,
-            router: router
-        )
+        let presenter = AuthPresenter(interactor: interactor, router: router)
 
         presenter.view = viewController
         viewController.presenter = presenter
