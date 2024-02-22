@@ -41,12 +41,11 @@ final class AuthViewController: UIViewController {
 private extension AuthViewController {
     
     func setupView() {
-        contentView.delegate = self
+        contentView.viewDelegate = self
         view = contentView as? AuthView
     }
     
     func setup() {
-        view.backgroundColor = .systemBackground
         setupNavBar()
     }
     
@@ -116,10 +115,5 @@ extension AuthViewController: AuthViewDelegate {
     func updateUI(for state: AuthState) {
         presenter?.updateUI(for: state)
     }
-    
-}
-
-// MARK: - Constants
-private extension AuthViewController {
     
 }

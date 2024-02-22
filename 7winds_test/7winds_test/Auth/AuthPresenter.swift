@@ -16,7 +16,7 @@ protocol AuthPresenterProtocol: AnyObject {
     func updateUI(for state: AuthState)
 }
 
-protocol InteractorOutputProtocol: AnyObject {
+protocol AuthInteractorOutputProtocol: AnyObject {
     func networkError(error: NetworkError)
     func authSuccess()
 }
@@ -25,8 +25,8 @@ final class AuthPresenter {
 
     // MARK: - Properties
     weak var view: AuthDisplayLogic?
-    var interactor: AuthInteractorProtocol
-    var router: AuthRouterProtocol
+    private var interactor: AuthInteractorProtocol
+    private var router: AuthRouterProtocol
 
     // MARK: - Init
     init(
@@ -125,7 +125,7 @@ private extension AuthPresenter {
 }
 
 // MARK: - InteractorOutput
-extension AuthPresenter: InteractorOutputProtocol {
+extension AuthPresenter: AuthInteractorOutputProtocol {
     
     func networkError(error: NetworkError) {
         switch error {

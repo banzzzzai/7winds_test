@@ -16,7 +16,7 @@ protocol AuthInteractorProtocol: AnyObject {
 final class AuthInteractor {
     
     // MARK: - Properties
-    weak var presenter: InteractorOutputProtocol?
+    weak var presenter: AuthInteractorOutputProtocol?
     private var provider: ProvidesAuth
     private var keychainManager: KeychainManagerProtocol
     

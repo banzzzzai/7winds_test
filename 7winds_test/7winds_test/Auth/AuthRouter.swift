@@ -18,9 +18,10 @@ class AuthRouter {
     
 }
 
+// MARK: - AuthRouterProtocol
 extension AuthRouter: AuthRouterProtocol {
     func showNextSreen() {
-        let nextVC = NearestCoffeeViewController()
+        let nextVC = NearestCoffeeAssembly.build()
         viewController?.navigationController?.pushViewController(nextVC, animated: true)
     }
 }
